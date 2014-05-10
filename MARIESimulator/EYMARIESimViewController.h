@@ -46,6 +46,9 @@
     NSInteger MBR;
     NSInteger INREG;
     NSInteger OUTREG;
+    
+    bool shouldContinueExecuting;
+    float executionDelay;
 }
 
 
@@ -59,5 +62,13 @@
 @property (strong, nonatomic) IBOutlet UITextView *txt_labels;
 
 - (IBAction)onClick_load:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UILabel *lbl_AC;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_MAR;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_MBR;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_IR;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_PC;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_OUTREG;
+@property (strong, nonatomic) IBOutlet UITextField *txt_INREG;
 
 @end

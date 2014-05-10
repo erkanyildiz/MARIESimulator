@@ -65,6 +65,8 @@
     INREG = 0;
     OUTREG = 0;
     
+    [self updateRegisters];
+    
     self.RAM = nil;
     self.RAM = [NSMutableArray arrayWithCapacity:65536];
     for (int i=0; i<65536; i++)
@@ -78,6 +80,18 @@
     //    self.txt_source.text = @"";
     self.txt_labels.text = @"";
     self.txt_memory.text = @"";
+}
+
+
+-(void)updateRegisters
+{
+    self.lbl_AC.text = hex4digit(AC);
+    self.lbl_MAR.text = hex4digit(MAR);
+    self.lbl_MBR.text = hex4digit(MBR);
+    self.lbl_IR.text = hex4digit(IR);
+    self.lbl_PC.text = hex4digit(PC);
+    self.lbl_OUTREG.text = hex4digit(OUTREG);
+    self.txt_INREG.text = hex4digit(INREG);
 }
 
 
@@ -159,9 +173,83 @@
              self.txt_memory.text = [self.txt_memory.text stringByAppendingFormat:@"%@ %@%@\n", address,prepadding,instructionHex ];
          }
      }];
+    
+    PC = offset + 1;
+    
+    [self updateRegisters];
 }
 
 
+-(void)runLoop
+{
+    NSLog(@"%s",__FUNCTION__);
+    
+    
+    //NOTE: fetch
+    MAR = PC;
+    IR = [self.RAM[MAR] integerValue];
+    PC++;
+
+    //NOTE: decode
+    NSInteger opcode = IR/4096;
+    NSInteger operand = IR%4096;
+    NSString* opcodeStr = self.opcodes[opcode];
+    
+    NSLog(@"%@ %@", hex(opcode), opcodeStr);
+    
+    //NOTE: execute
+    if([opcodeStr isEqualToString:kHALT])
+    {
+        NSLog(@"HALT");
+    }
+    else if([opcodeStr isEqualToString:kLOAD])
+    {
+        MAR = operand;
+        MBR = [self.RAM[MAR] integerValue];
+        AC = MBR;
+    }
+    else if([opcodeStr isEqualToString:kLOADI])
+    {
+        MAR = operand;
+        MBR = [self.RAM[MAR] integerValue];
+        MAR = MBR;
+        MBR = [self.RAM[MAR] integerValue];
+        AC = MBR;
+    }
+    else if([opcodeStr isEqualToString:kSTORE])
+    {
+        MAR = operand;
+        MBR = AC;
+        self.RAM[MAR] = @(MBR);
+    }
+    else if([opcodeStr isEqualToString:kSTOREI])
+    {
+        MAR = operand;
+        MBR = [self.RAM[MAR] integerValue];
+        MAR = MBR;
+        MBR = AC;
+        self.RAM[MAR] = @(MBR);
+    }
+    else if([opcodeStr isEqualToString:kADD])
+    {
+        MAR = operand;
+        MBR = [self.RAM[MAR] integerValue];
+        AC = AC + MBR;
+    }
+    else if([opcodeStr isEqualToString:kADDI])
+    {
+        MAR = operand;
+        MBR = [self.RAM[MAR] integerValue];
+        AC = AC + MBR;
+    }
+
+    
+    
+    [self updateRegisters];
+    
+    if(shouldContinueExecuting && ![opcodeStr isEqualToString:kHALT])
+       [self performSelector:@selector(runLoop) withObject:nil afterDelay:executionDelay];
+}
 
 #pragma mark - User Interaction
 
@@ -173,8 +261,9 @@
 
 - (IBAction)onClick_run:(id)sender
 {
-    
-    
+    shouldContinueExecuting = YES;
+    executionDelay=0.2;
+    [self runLoop];
 }
 
 
@@ -184,6 +273,12 @@
 NSString* hex(NSInteger d)
 {
     return [NSString stringWithFormat:@"%03x",d].uppercaseString;
+}
+
+
+NSString* hex4digit(NSInteger d)
+{
+    return [NSString stringWithFormat:@"%04x",d].uppercaseString;
 }
 
 
@@ -198,6 +293,7 @@ NSInteger dec(NSString* h)
 
 #pragma mark - Tests
 
+//TODO: Add line numbers (scrollable)
 //TODO: DEC HEX before HALT
 //TODO: same labels used again
 //TODO: whitespace parsing
