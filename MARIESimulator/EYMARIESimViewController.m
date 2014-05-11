@@ -83,6 +83,24 @@
 }
 
 
+-(void)updateRAM
+{
+    self.txt_memory.text = @"";
+    
+    [self.RAM enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+     {
+         if(![obj isEqual:[NSNull null]])
+         {
+             NSString* address = hex(idx);
+             NSString* instructionHex = hex([self.RAM[idx] integerValue]);
+             NSString* prepadding = (instructionHex.length < 4)?@"0":@"";
+             
+             self.txt_memory.text = [self.txt_memory.text stringByAppendingFormat:@"%@ %@%@\n", address,prepadding,instructionHex ];
+         }
+     }];
+}
+
+
 -(void)updateRegisters
 {
     self.lbl_AC.text = hex4digit(AC);
@@ -158,22 +176,8 @@
          }
      }];
     
-    
-    
-#pragma mark RAM table fill
-    
-    [self.RAM enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-     {
-         if(![obj isEqual:[NSNull null]])
-         {
-             NSString* address = hex(idx);
-             NSString* instructionHex = hex([self.RAM[idx] integerValue]);
-             NSString* prepadding = (instructionHex.length < 4)?@"0":@"";
-             
-             self.txt_memory.text = [self.txt_memory.text stringByAppendingFormat:@"%@ %@%@\n", address,prepadding,instructionHex ];
-         }
-     }];
-    
+    [self updateRAM];
+
     PC = (offset==0)?0:offset + 1;
     
     [self updateRegisters];
@@ -295,6 +299,7 @@
     
     
     [self updateRegisters];
+    [self updateRAM];
     
     if(shouldContinueExecuting && ![opcodeStr isEqualToString:kHALT])
        [self performSelector:@selector(runLoop) withObject:nil afterDelay:executionDelay];
@@ -371,7 +376,7 @@ NSInteger dec(NSString* h)
 
 //UI
 //TODO: Add line numbers (scrollable)
-
+//TODO: tableview instead of textview for RAM
 //PARSE
 //TODO: DEC HEX before HALT
 //TODO: same labels used again
