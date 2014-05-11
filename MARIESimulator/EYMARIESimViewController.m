@@ -174,7 +174,7 @@
          }
      }];
     
-    PC = offset + 1;
+    PC = (offset==0)?0:offset + 1;
     
     [self updateRegisters];
 }
@@ -240,7 +240,56 @@
     {
         MAR = operand;
         MBR = [self.RAM[MAR] integerValue];
+        MAR = MBR;
+        MBR = [self.RAM[MAR] integerValue];
         AC = AC + MBR;
+    }
+    else if([opcodeStr isEqualToString:kSUBT])
+    {
+        MAR = operand;
+        MBR = [self.RAM[MAR] integerValue];
+        AC = AC - MBR;
+    }
+    else if([opcodeStr isEqualToString:kINPUT])
+    {
+        AC = INREG;
+    }
+    else if([opcodeStr isEqualToString:kOUTPUT])
+    {
+        OUTREG = AC;
+    }
+    else if([opcodeStr isEqualToString:kCLEAR])
+    {
+        AC = 0;
+    }
+    else if([opcodeStr isEqualToString:kJUMP])
+    {
+        PC = operand;
+    }
+    else if([opcodeStr isEqualToString:kJUMPI])
+    {
+        MAR = operand;
+        MBR = [self.RAM[MAR] integerValue];
+        PC = MBR;
+    }
+    else if([opcodeStr isEqualToString:kJNS])
+    {
+        MBR = PC;
+        MAR = operand;
+        self.RAM[MAR] = @(MBR);
+        MBR = operand;
+        AC = 1;
+        AC = AC + MBR;
+        PC = AC;
+    }
+    else if ([opcodeStr isEqualToString:kSKIPCOND])
+    {
+        if(operand/256 == 0 && AC < 0)
+            PC++;
+        else if (operand/256 == 1 && AC == 0)
+            PC++;
+        else if (operand/256 == 2 && AC > 0)
+            PC++;
     }
 
     
@@ -258,6 +307,21 @@
     [self parse:self.txt_source.text];
 }
 
+- (IBAction)onClick_example0:(id)sender
+{
+    self.txt_source.text =
+    @"LOAD X\n"
+    "ADD Y\n"
+    "SUBT Z\n"
+    "STORE SONUC\n"
+    "OUTPUT\n"
+    "HALT\n"
+    "X DEC 10\n"
+    "Y DEC 20\n"
+    "Z DEC 5\n"
+    "SONUC DEC 0\n";
+}
+
 
 - (IBAction)onClick_run:(id)sender
 {
@@ -266,6 +330,13 @@
     [self runLoop];
 }
 
+
+- (IBAction)onClick_step:(id)sender
+{
+    shouldContinueExecuting = NO;
+    executionDelay=0.0;
+    [self runLoop];
+}
 
 
 #pragma mark - Helpers
@@ -293,7 +364,15 @@ NSInteger dec(NSString* h)
 
 #pragma mark - Tests
 
+//EXECUTE
+//TODO: check JNS
+//TODO: check SKIPCOND
+//TODO: handle ORG 0 -1 +1
+
+//UI
 //TODO: Add line numbers (scrollable)
+
+//PARSE
 //TODO: DEC HEX before HALT
 //TODO: same labels used again
 //TODO: whitespace parsing
