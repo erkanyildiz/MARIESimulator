@@ -68,8 +68,8 @@
     [self updateRegisters];
     
     self.RAM = nil;
-    self.RAM = [NSMutableArray arrayWithCapacity:65536];
-    for (int i=0; i<65536; i++)
+    self.RAM = [NSMutableArray arrayWithCapacity:MAXWORD];
+    for (int i=0; i<MAXWORD; i++)
     {
         [self.RAM addObject:[NSNull null]];
     }
@@ -149,7 +149,7 @@
              NSInteger index = offset + idx;
              
              self.labels[label] = @(index);
-             NSInteger immediateValue = ([parts[1] isEqualToString:kHEX])?dec(parts[2]):[parts[2] integerValue];
+             NSInteger immediateValue = ([parts[1] isEqualToString:kHEX])?dec(parts[2]):([parts[2] integerValue] + MAXWORD) % MAXWORD;
              self.RAM[index]  = @(immediateValue);
              
              self.txt_labels.text = [self.txt_labels.text stringByAppendingFormat:@"%@ %@\n", label, hex(index)];
@@ -246,7 +246,7 @@
     {
         MAR = operand;
         MBR = [self.RAM[MAR] integerValue];
-        AC = AC + MBR;
+        AC = (AC + MBR) % MAXWORD;
     }
     else if([opcodeStr isEqualToString:kADDI])
     {
@@ -254,13 +254,14 @@
         MBR = [self.RAM[MAR] integerValue];
         MAR = MBR;
         MBR = [self.RAM[MAR] integerValue];
-        AC = AC + MBR;
+        AC = (AC + MBR) % MAXWORD;
     }
     else if([opcodeStr isEqualToString:kSUBT])
     {
         MAR = operand;
         MBR = [self.RAM[MAR] integerValue];
-        AC = AC - MBR;
+        AC = ((AC - MBR) + MAXWORD) % MAXWORD;
+        NSLog(@"SUB AC %i",AC);
     }
     else if([opcodeStr isEqualToString:kINPUT])
     {
@@ -291,22 +292,22 @@
         self.RAM[MAR] = @(MBR);
         MBR = operand;
         AC = 1;
-        AC = AC + MBR;
+        AC = (AC + MBR) % MAXWORD;
         PC = AC;
     }
     else if ([opcodeStr isEqualToString:kSKIPCOND])
     {
-        if(operand == 0 && AC < 0)
+        if(operand == 0 && AC >= MAXWORD/2)
         {
             NSLog(@"SKIPCOND negative %i",operand);
             PC++;
         }
         else if (operand == 4*256 && AC == 0)
         {
-            NSLog(@"SKIPCOND equal %i",operand);
+            NSLog(@"SKIPCOND zero %i",operand);
             PC++;
         }
-        else if (operand == 8*256 && AC > 0)
+        else if (operand == 8*256 && AC < MAXWORD/2 && AC != 0)
         {
             NSLog(@"SKIPCOND positive %i",operand);
             PC++;
@@ -377,11 +378,18 @@ NSString* hex4digit(NSInteger d)
 
 NSInteger dec(NSString* h)
 {
+    int sign = 1;
+    if([h characterAtIndex:0] == '-')
+    {
+        sign = -1;
+        h = [h substringFromIndex:1];
+    }
+    
     NSScanner *scanner = [NSScanner scannerWithString:h];
     unsigned int dec;
     [scanner scanHexInt:&dec];
     
-    return dec;
+    return ((sign*dec) + MAXWORD) % MAXWORD;
 }
 
 #pragma mark - Tests

@@ -35,7 +35,7 @@
 #define kDEC         @"DEC"
 #define kHEX         @"HEX"
 
-
+#define MAXWORD 65536
 
 @interface EYMARIESimViewController : UIViewController
 {
