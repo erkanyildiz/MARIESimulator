@@ -28,19 +28,22 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOURCE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vtv-I8-idZ">
                     <rect key="frame" x="40" y="0.0" width="74" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="19"/>
+                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="19"/>
+                    <color key="textColor" red="0.5" green="0.0" blue="0.0054255031685790378" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RAM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5b1-o3-BIW">
                     <rect key="frame" x="296" y="0.0" width="74" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="19"/>
+                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="19"/>
+                    <color key="textColor" red="0.5" green="0.0" blue="0.0054255031685790378" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABELS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vH0-g1-s8W">
                     <rect key="frame" x="443" y="0.0" width="74" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="19"/>
+                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="19"/>
+                    <color key="textColor" red="0.5" green="0.0" blue="0.0054255031685790378" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="4Q0-1s-EBv">
@@ -108,21 +111,21 @@ Z HEX 5</string>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="14o-SV-mZJ">
                     <rect key="frame" x="296" y="24" width="130" height="740"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.8253142426909148" green="0.90816326530612246" blue="0.8249604661875497" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="yCc-Om-2Ql">
-                    <rect key="frame" x="443" y="24" width="212" height="256"/>
+                    <rect key="frame" x="443" y="24" width="180" height="256"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="0.85364028141138137" blue="0.79863585060603004" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CNh-Rf-vGx">
-                    <rect key="frame" x="436" y="687" width="90" height="30"/>
+                    <rect key="frame" x="443" y="649" width="90" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.76277372259999998" green="0.12770871349999999" blue="0.3540145985" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.76277372259999998" green="0.36503923731370319" blue="0.16218260615271529" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="LOAD">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -131,7 +134,7 @@ Z HEX 5</string>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dzq-Ww-jDI">
-                    <rect key="frame" x="554" y="687" width="90" height="30"/>
+                    <rect key="frame" x="443" y="714" width="90" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.25490196079999999" green="0.69803921570000005" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="RUN">
@@ -141,9 +144,10 @@ Z HEX 5</string>
                         <action selector="onClick_run:" destination="-1" eventType="touchUpInside" id="OjY-dt-uCC"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dm1-BQ-ce0">
-                    <rect key="frame" x="672" y="131" width="90" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dm1-BQ-ce0">
+                    <rect key="frame" x="554" y="649" width="90" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.75587682509999998" green="0.74662913379999996" blue="0.90816326530000002" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="CLEAR">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -161,6 +165,11 @@ Z HEX 5</string>
                         <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="EVu-pi-EBQ"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" id="zyQ-Fd-BFr">
+                    <rect key="frame" x="443" y="289" width="180" height="188"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.79591836734693877" green="0.70547474496767038" blue="0.50748444803108672" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FFFF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I0A-9O-ia8">
                     <rect key="frame" x="534" y="296" width="130" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -246,9 +255,9 @@ Z HEX 5</string>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7EC-SH-5ez">
-                    <rect key="frame" x="668" y="687" width="90" height="30"/>
+                    <rect key="frame" x="554" y="714" width="90" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.75" green="0.32955797539999998" blue="0.45360103619999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.4296233105509274" green="0.61224489795918369" blue="0.489387635559556" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="STEP">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
