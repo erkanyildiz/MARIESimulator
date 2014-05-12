@@ -396,8 +396,9 @@ NSInteger dec(NSString* h)
 
 //EXECUTE
 //TODO: check JNS
-//TODO: check SKIPCOND
+//DONE: check SKIPCOND
 //DONE: handle ORG 0 -1 +1
+//TODO: comma parse for JUMP and DEC/HEX
 
 //UI
 //TODO: Add line numbers (scrollable)
