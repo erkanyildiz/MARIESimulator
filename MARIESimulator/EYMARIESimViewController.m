@@ -80,6 +80,8 @@
     //    self.txt_source.text = @"";
     self.txt_labels.text = @"";
     self.txt_memory.text = @"";
+    
+    isHalted = NO;
 }
 
 
@@ -178,7 +180,10 @@
     
     [self updateRAM];
 
-    PC = (offset==0)?0:offset + 1;
+    PC = offset;
+    
+    if([parts[0] isEqualToString:kORG])
+        PC++;
     
     [self updateRegisters];
 }
@@ -188,7 +193,9 @@
 {
     NSLog(@"%s",__FUNCTION__);
     
-    
+    if(isHalted)
+        return;
+
     //NOTE: fetch
     MAR = PC;
     IR = [self.RAM[MAR] integerValue];
@@ -205,6 +212,7 @@
     if([opcodeStr isEqualToString:kHALT])
     {
         NSLog(@"HALT");
+        isHalted = YES;
     }
     else if([opcodeStr isEqualToString:kLOAD])
     {
@@ -288,12 +296,21 @@
     }
     else if ([opcodeStr isEqualToString:kSKIPCOND])
     {
-        if(operand/256 == 0 && AC < 0)
+        if(operand == 0 && AC < 0)
+        {
+            NSLog(@"SKIPCOND negative %i",operand);
             PC++;
-        else if (operand/256 == 1 && AC == 0)
+        }
+        else if (operand == 4*256 && AC == 0)
+        {
+            NSLog(@"SKIPCOND equal %i",operand);
             PC++;
-        else if (operand/256 == 2 && AC > 0)
+        }
+        else if (operand == 8*256 && AC > 0)
+        {
+            NSLog(@"SKIPCOND positive %i",operand);
             PC++;
+        }
     }
 
     
@@ -372,11 +389,16 @@ NSInteger dec(NSString* h)
 //EXECUTE
 //TODO: check JNS
 //TODO: check SKIPCOND
-//TODO: handle ORG 0 -1 +1
+//DONE: handle ORG 0 -1 +1
 
 //UI
 //TODO: Add line numbers (scrollable)
 //TODO: tableview instead of textview for RAM
+//TODO: PC indicator
+//TODO: run clear for re-run
+//TODO: run disable before loading
+//TODO: slider for speed
+
 //PARSE
 //TODO: DEC HEX before HALT
 //TODO: same labels used again

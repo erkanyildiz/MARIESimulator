@@ -49,6 +49,8 @@
     
     bool shouldContinueExecuting;
     float executionDelay;
+    
+    bool isHalted;
 }
 
 
