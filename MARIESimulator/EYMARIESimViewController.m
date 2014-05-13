@@ -139,21 +139,26 @@
     
     [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
      {
-         NSArray* parts = [obj componentsSeparatedByString:@" "];
+         NSArray* commaSeparated = [obj componentsSeparatedByString:@","];
          
-         if (parts.count == 3 && ([parts[1] isEqualToString:kDEC] || [parts[1] isEqualToString:kHEX]))
-         {
-             NSLog(@"Label detected on line %i", idx);
-             
-             NSString *label = parts[0];
+         if (commaSeparated.count == 2)
+        {
+             NSArray* parts = [[commaSeparated[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet] componentsSeparatedByString:@" "];
+
+             NSString *label = commaSeparated[0];
              NSInteger index = offset + idx;
              
              self.labels[label] = @(index);
-             NSInteger immediateValue = ([parts[1] isEqualToString:kHEX])?dec(parts[2]):([parts[2] integerValue] + MAXWORD) % MAXWORD;
-             self.RAM[index]  = @(immediateValue);
-             
              self.txt_labels.text = [self.txt_labels.text stringByAppendingFormat:@"%@ %@\n", label, hex(index)];
-         }
+
+            if ([parts[0] isEqualToString:kDEC] || [parts[0] isEqualToString:kHEX])
+            {
+                NSLog(@"Label with DEC or HEX detected on line %i", idx);
+                
+                NSInteger immediateValue = ([parts[0] isEqualToString:kHEX])?dec(parts[1]):([parts[1] integerValue] + MAXWORD) % MAXWORD;
+                self.RAM[index]  = @(immediateValue);
+            }
+        }
      }];
     
     
@@ -164,7 +169,13 @@
      {
          NSLog(@"Line %i: %@", idx, obj);
          
-         NSArray* parts = [obj componentsSeparatedByString:@" "];
+         NSString* forSpaceSeparate = obj;
+         NSArray* commaSeparated = [obj componentsSeparatedByString:@","];
+         if(commaSeparated.count == 2)
+             forSpaceSeparate = [commaSeparated[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+         
+         NSArray* parts = [forSpaceSeparate componentsSeparatedByString:@" "];
+
          NSInteger opcode = [self.opcodes indexOfObject:parts[0]];
          
          if (opcode != NSNotFound)
@@ -356,6 +367,7 @@
 
 - (IBAction)onClick_step:(id)sender
 {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(runLoop) object:nil];
     shouldContinueExecuting = NO;
     executionDelay=0.0;
     [self runLoop];
@@ -395,10 +407,10 @@ NSInteger dec(NSString* h)
 #pragma mark - Tests
 
 //EXECUTE
-//TODO: check JNS
+//DONE: check JNS
 //DONE: check SKIPCOND
 //DONE: handle ORG 0 -1 +1
-//TODO: comma parse for JUMP and DEC/HEX
+//DONE: comma parse for JUMP and DEC/HEX
 
 //UI
 //TODO: Add line numbers (scrollable)

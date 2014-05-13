@@ -51,13 +51,14 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <string key="text">LOAD X
-SKIPCOND 400
-ADD Y
+L, SKIPCOND 400
+K, ADD Y
 STORE Z
+JUMP K
 HALT
-X DEC 0
-Y DEC 20
-Z HEX 5</string>
+X, DEC 9
+Y, DEC 20
+Z, HEX 5</string>
                     <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
