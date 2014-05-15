@@ -343,17 +343,78 @@
 
 - (IBAction)onClick_example0:(id)sender
 {
-    self.txt_source.text =
-    @"LOAD X\n"
-    "ADD Y\n"
-    "SUBT Z\n"
-    "STORE SONUC\n"
-    "OUTPUT\n"
-    "HALT\n"
-    "X DEC 10\n"
-    "Y DEC 20\n"
-    "Z DEC 5\n"
-    "SONUC DEC 0\n";
+    switch ([sender tag])
+    {
+        case 100:
+            self.txt_source.text =
+            @"LOAD X\n"
+            "ADD Y\n"
+            "SUBT Z\n"
+            "STORE SONUC\n"
+            "OUTPUT\n"
+            "HALT\n"
+            "X, DEC 10\n"
+            "Y, DEC 20\n"
+            "Z, DEC 5\n"
+            "SONUC DEC 0\n";
+            break;
+
+        case 101:
+            self.txt_source.text =
+            @"";
+            break;
+
+        case 102:
+            self.txt_source.text =
+            @"LOAD F1\n"
+            "STOREI Y\n"
+            "JNS SBR\n"
+            "LOAD F2\n"
+            "STOREI Y\n"
+            "JNS SBR\n"
+            "aa, CLEAR\n"
+            "ADD F1\n"
+            "ADD F2\n"
+            "STOREI Y\n"
+            "LOAD F2\n"
+            "STORE F1\n"
+            "LOADI Y\n"
+            "STORE F2\n"
+            "JNS SBR\n"
+            "JUMP aa\n"
+            "SBR, HEX 0\n"
+            "LOAD Y\n"
+            "ADD I\n"
+            "STORE Y\n"
+            "LOAD C\n"
+            "SUBT I\n"
+            "STORE C\n"
+            "SKIPCOND 400\n"
+            "JUMPI SBR\n"
+            "HALT\n"
+            "Y, HEX 4FF\n"
+            "I, DEC 1\n"
+            "F1, DEC 0\n"
+            "F2, DEC 1\n"
+            "C, DEC 50\n"
+            "END\n";;
+            break;
+
+        case 103:
+            self.txt_source.text =
+            @"";
+            break;
+
+        case 999:
+            self.txt_source.text =
+            @"";
+            break;
+
+            
+        default:
+            break;
+    }
+    
 }
 
 
