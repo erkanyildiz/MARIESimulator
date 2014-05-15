@@ -149,7 +149,7 @@
              NSInteger index = offset + idx;
              
              self.labels[label] = @(index);
-             self.txt_labels.text = [self.txt_labels.text stringByAppendingFormat:@"%@ %@\n", label, hex(index)];
+             self.txt_labels.text = [self.txt_labels.text stringByAppendingFormat:@"%@ %@\n", hex(index), label];
 
             if ([parts[0] isEqualToString:kDEC] || [parts[0] isEqualToString:kHEX])
             {
@@ -361,7 +361,34 @@
 
         case 101:
             self.txt_source.text =
-            @"";
+            @"START, CLEAR\n"
+            "STORE C\n"
+            "STORE TEMP\n"
+            "LOOP, LOAD TEMP\n"
+            "ADDI I\n"
+            "STORE TEMP\n"
+            "LOAD C\n"
+            "ADD INC\n"
+            "STORE C\n"
+            "SUBT M\n"
+            "SKIPCOND 400\n"
+            "JUMP LOOP\n"
+            "LOAD TEMP\n"
+            "STOREI I\n"
+            "LOAD I\n"
+            "ADD INC\n"
+            "STORE I\n"
+            "SUBT LAST\n"
+            "SKIPCOND 400\n"
+            "JUMP START\n"
+            "HALT\n"
+            "I, HEX 210\n"
+            "LAST, HEX 21F\n"
+            "C, DEC 0\n"
+            "TEMP, DEC 0\n"
+            "INC, DEC 1\n"
+            "M, DEC 8\n"
+            "END\n";
             break;
 
         case 102:
@@ -405,6 +432,16 @@
             @"";
             break;
 
+
+        case 200:
+            for (int i=dec(@"210"); i<dec(@"21F"); i++)
+                self.RAM[i]=@(arc4random()%100);
+            
+            [self updateRAM];
+            
+            break;
+
+        
         case 999:
             self.txt_source.text =
             @"";
@@ -486,5 +523,7 @@ NSInteger dec(NSString* h)
 //TODO: same labels used again
 //TODO: whitespace parsing
 //TODO: more than one ORG
+//TODO: direct ram edit
+//TODO: labels with tab indent
 
 @end
