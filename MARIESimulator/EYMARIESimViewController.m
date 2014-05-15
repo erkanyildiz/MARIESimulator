@@ -100,6 +100,9 @@
              self.txt_memory.text = [self.txt_memory.text stringByAppendingFormat:@"%@ %@%@\n", address,prepadding,instructionHex ];
          }
      }];
+    
+    NSRange myRange=NSMakeRange(self.txt_memory.text.length, 0);
+    [self.txt_memory scrollRangeToVisible:myRange];
 }
 
 
@@ -383,7 +386,7 @@
             "JUMP START\n"
             "HALT\n"
             "I, HEX 210\n"
-            "LAST, HEX 21F\n"
+            "LAST, HEX 22F\n"
             "C, DEC 0\n"
             "TEMP, DEC 0\n"
             "INC, DEC 1\n"
@@ -429,19 +432,59 @@
 
         case 103:
             self.txt_source.text =
-            @"";
+            @"ZERO, CLEAR\n"
+            "LOADI I\n"
+            "SKIPCOND 400\n"
+            "JUMP POSITIVE\n"
+            "LOADI CZ\n"
+            "ADD INC\n"
+            "STOREI CZ\n"
+            "JUMP LOOP\n"
+            "POSITIVE, SKIPCOND 800\n"
+            "JUMP NEGATIVE\n"
+            "LOADI CP\n"
+            "ADD INC\n"
+            "STOREI CP\n"
+            "JUMP LOOP\n"
+            "NEGATIVE, LOADI CN\n"
+            "ADD INC\n"
+            "STOREI CN\n"
+            "LOOP, LOAD I\n"
+            "ADD INC\n"
+            "STORE I\n"
+            "SUBT LAST\n"
+            "SKIPCOND 800\n"
+            "JUMP ZERO\n"
+            "HALT\n"
+            "I, HEX 350\n"
+            "LAST, HEX 36F\n"
+            "CP, HEX 500\n"
+            "CN, HEX 501\n"
+            "CZ, HEX 502\n"
+            "INC, DEC 1\n";
             break;
 
 
         case 200:
-            for (int i=dec(@"210"); i<dec(@"21F"); i++)
+            for (int i=dec(@"210"); i<=dec(@"22F"); i++)
                 self.RAM[i]=@(arc4random()%100);
             
             [self updateRAM];
             
             break;
 
-        
+        case 300:
+            for (int i=dec(@"350"); i<=dec(@"36F"); i++)
+                self.RAM[i]=@(arc4random()%MAXWORD);
+            
+            self.RAM[dec(@"500")] = @0;
+            self.RAM[dec(@"501")] = @0;
+            self.RAM[dec(@"502")] = @0;
+            
+            [self updateRAM];
+            
+            break;
+            
         case 999:
             self.txt_source.text =
             @"";
@@ -509,6 +552,8 @@ NSInteger dec(NSString* h)
 //DONE: check SKIPCOND
 //DONE: handle ORG 0 -1 +1
 //DONE: comma parse for JUMP and DEC/HEX
+//TODO: prevent run before loading and setting random memory
+//TODO: NSNull intvaluse 0 category
 
 //UI
 //TODO: Add line numbers (scrollable)
