@@ -100,9 +100,6 @@
              self.txt_memory.text = [self.txt_memory.text stringByAppendingFormat:@"%@ %@%@\n", address,prepadding,instructionHex ];
          }
      }];
-    
-    NSRange myRange=NSMakeRange(self.txt_memory.text.length, 0);
-    [self.txt_memory scrollRangeToVisible:myRange];
 }
 
 
