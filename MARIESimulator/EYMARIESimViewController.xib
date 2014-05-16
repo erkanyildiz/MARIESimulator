@@ -25,6 +25,13 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sg6-js-GYL">
+                    <rect key="frame" x="13" y="2" width="20" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="19"/>
+                    <color key="textColor" red="0.91836734689999999" green="0.85244199099999995" blue="0.83230994749999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOURCE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vtv-I8-idZ">
                     <rect key="frame" x="40" y="2" width="74" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -53,17 +60,10 @@
                     <color key="textColor" red="0.91836734693877553" green="0.85244199102554052" blue="0.83230994751725662" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="4Q0-1s-EBv">
-                    <rect key="frame" x="40" y="24" width="243" height="976"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="right" selectable="NO" id="rJ9-EW-r8k">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="right" selectable="NO" id="rJ9-EW-r8k" userLabel="Text View - LINES">
                     <rect key="frame" x="0.0" y="24" width="40" height="976"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.55839416058394165" green="0.53649635036496346" blue="0.53649635036496346" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.83163265306122447" green="0.80328153988868278" blue="0.80328153988868278" alpha="1" colorSpace="calibratedRGB"/>
                     <string key="text">1
 2
 3
@@ -117,134 +117,31 @@
                     <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="14o-SV-mZJ">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="4Q0-1s-EBv" userLabel="Text View - SOURCE">
+                    <rect key="frame" x="40" y="24" width="243" height="976"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <view contentMode="scaleToFill" id="kaR-TC-alf">
+                    <rect key="frame" x="296" y="24" width="130" height="976"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.82531424269999998" green="0.90816326530000002" blue="0.82496046619999996" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" id="vsY-9U-fap">
+                    <rect key="frame" x="296" y="24" width="40" height="976"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.71403591783371279" green="0.7857142857142857" blue="0.71372984153304864" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="14o-SV-mZJ" userLabel="Text View - RAM">
                     <rect key="frame" x="296" y="24" width="130" height="976"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.8253142426909148" green="0.90816326530612246" blue="0.8249604661875497" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="yCc-Om-2Ql">
-                    <rect key="frame" x="439" y="267" width="180" height="365"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="1" green="0.85364028141138137" blue="0.79863585060603004" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CNh-Rf-vGx">
-                    <rect key="frame" x="645" y="24" width="100" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.76277372259999998" green="0.36503923731370319" blue="0.16218260615271529" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="LOAD">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onClick_load:" destination="-1" eventType="touchUpInside" id="gFY-Po-HY4"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dzq-Ww-jDI">
-                    <rect key="frame" x="645" y="96" width="100" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.25490196079999999" green="0.69803921570000005" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="RUN">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onClick_run:" destination="-1" eventType="touchUpInside" id="OjY-dt-uCC"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bbY-IA-aja">
-                    <rect key="frame" x="645" y="320" width="100" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="EXAMPLE 0">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="EVu-pi-EBQ"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ECf-Ic-nyt">
-                    <rect key="frame" x="645" y="267" width="100" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="CLEAR">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="umA-Cl-b4f"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UL5-nW-uBg">
-                    <rect key="frame" x="645" y="374" width="100" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="EXAMPLE 1">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="kIh-2r-jUO"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eRo-ue-Rrt">
-                    <rect key="frame" x="645" y="429" width="100" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="EXAMPLE 2">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="stV-ii-Rf5"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="poY-da-aZg">
-                    <rect key="frame" x="645" y="483" width="100" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="EXAMPLE 3">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="xPF-ig-So1"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BBL-zj-Fhh">
-                    <rect key="frame" x="645" y="538" width="100" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.49489795918367352" green="0.41015171471153283" blue="0.3774687231720405" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="210-22F">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="pEn-DK-7PF"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="300" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kEH-kH-sZx">
-                    <rect key="frame" x="645" y="592" width="100" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.49489795918367352" green="0.41015171471153283" blue="0.3774687231720405" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="350-36F">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="YSF-De-26v"/>
-                    </connections>
-                </button>
-                <view contentMode="scaleToFill" id="zyQ-Fd-BFr">
+                <view contentMode="scaleToFill" id="zyQ-Fd-BFr" userLabel="View - REGISTERS">
                     <rect key="frame" x="439" y="24" width="180" height="194"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -335,6 +232,45 @@
                     </subviews>
                     <color key="backgroundColor" red="0.79591836734693877" green="0.70547474496767038" blue="0.50748444803108672" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <view contentMode="scaleToFill" id="HIq-pd-Rfl">
+                    <rect key="frame" x="439" y="267" width="180" height="365"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.85364028140000003" blue="0.79863585059999997" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" id="dA8-7V-yL6">
+                    <rect key="frame" x="439" y="267" width="40" height="365"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.81122448979591844" green="0.69249390175719205" blue="0.64787296044060605" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="yCc-Om-2Ql" userLabel="Text View - LABELS">
+                    <rect key="frame" x="439" y="267" width="180" height="365"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CNh-Rf-vGx">
+                    <rect key="frame" x="645" y="24" width="100" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.76277372259999998" green="0.36503923731370319" blue="0.16218260615271529" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="LOAD">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClick_load:" destination="-1" eventType="touchUpInside" id="gFY-Po-HY4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dzq-Ww-jDI">
+                    <rect key="frame" x="645" y="96" width="100" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.25490196079999999" green="0.69803921570000005" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="RUN">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClick_run:" destination="-1" eventType="touchUpInside" id="OjY-dt-uCC"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7EC-SH-5ez">
                     <rect key="frame" x="645" y="168" width="100" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -344,6 +280,97 @@
                     </state>
                     <connections>
                         <action selector="onClick_step:" destination="-1" eventType="touchUpInside" id="CkN-t4-drY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ECf-Ic-nyt">
+                    <rect key="frame" x="645" y="267" width="100" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="CLEAR">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="umA-Cl-b4f"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bbY-IA-aja">
+                    <rect key="frame" x="645" y="320" width="100" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="EXAMPLE 0">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="EVu-pi-EBQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UL5-nW-uBg">
+                    <rect key="frame" x="645" y="374" width="100" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="EXAMPLE 1">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="kIh-2r-jUO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eRo-ue-Rrt">
+                    <rect key="frame" x="645" y="429" width="100" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="EXAMPLE 2">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="stV-ii-Rf5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="poY-da-aZg">
+                    <rect key="frame" x="645" y="483" width="100" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="EXAMPLE 3">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="xPF-ig-So1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BBL-zj-Fhh">
+                    <rect key="frame" x="645" y="538" width="100" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.49489795918367352" green="0.41015171471153283" blue="0.3774687231720405" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="210-22F">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="pEn-DK-7PF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="300" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kEH-kH-sZx">
+                    <rect key="frame" x="645" y="592" width="100" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.49489795918367352" green="0.41015171471153283" blue="0.3774687231720405" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="350-36F">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClick_example0:" destination="-1" eventType="touchUpInside" id="YSF-De-26v"/>
                     </connections>
                 </button>
             </subviews>

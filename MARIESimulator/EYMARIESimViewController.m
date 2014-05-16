@@ -97,7 +97,7 @@
              NSString* instructionHex = hex([self.RAM[idx] integerValue]);
              NSString* prepadding = (instructionHex.length < 4)?@"0":@"";
              
-             self.txt_memory.text = [self.txt_memory.text stringByAppendingFormat:@"%@ %@%@\n", address,prepadding,instructionHex ];
+             self.txt_memory.text = [self.txt_memory.text stringByAppendingFormat:@"%@  %@%@\n", address,prepadding,instructionHex ];
          }
      }];
 }
@@ -149,7 +149,7 @@
              NSInteger index = offset + idx;
              
              self.labels[label] = @(index);
-             self.txt_labels.text = [self.txt_labels.text stringByAppendingFormat:@"%@ %@\n", hex(index), label];
+             self.txt_labels.text = [self.txt_labels.text stringByAppendingFormat:@"%@  %@\n", hex(index), label];
 
             if ([parts[0] isEqualToString:kDEC] || [parts[0] isEqualToString:kHEX])
             {
