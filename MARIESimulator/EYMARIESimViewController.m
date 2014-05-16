@@ -48,9 +48,6 @@
                     kLOADI,
                     nil];
     
-    [self clear];
-    
-    
     
     vw_PCI = [[UIView alloc] initWithFrame:(CGRect){296,32,40,INDICATOR_HEIGHT}];
     vw_PCI.alpha = 0.5;
@@ -62,6 +59,9 @@
     vw_MARI.backgroundColor = UIColor.yellowColor;
     [self.view addSubview:vw_MARI];
     vw_MARI.hidden = YES;
+    
+
+    [self clear];
 }
 
 
@@ -83,6 +83,8 @@
     IndicatorOffset = PC;
     [self updateIndicators];
 
+    vw_PCI.hidden=YES;
+    
     
     self.RAM = nil;
     self.RAM = [NSMutableArray arrayWithCapacity:MAXWORD];
@@ -223,6 +225,8 @@
     IndicatorOffset = PC;
     
     [self updateRegisters];
+    [self updateIndicators];
+    vw_PCI.hidden=NO;
 }
 
 
@@ -380,9 +384,6 @@
 
 - (IBAction)onClick_example0:(id)sender
 {
-    self.txt_source.text = @"";
-    [self clear];
-
     switch ([sender tag])
     {
         case 100:
@@ -397,6 +398,9 @@
             "Y, DEC 20\n"
             "Z, DEC 5\n"
             "SONUC DEC 0\n";
+            
+            [self clear];
+
             break;
 
         case 101:
@@ -429,6 +433,9 @@
             "INC, DEC 1\n"
             "M, DEC 8\n"
             "END\n";
+            
+            [self clear];
+
             break;
 
         case 102:
@@ -465,6 +472,9 @@
             "FIB2, DEC 1\n"
             "INC, DEC 1\n"
             "END\n";
+
+            [self clear];
+
             break;
 
         case 103:
@@ -499,6 +509,9 @@
             "CN, HEX 501\n"
             "CZ, HEX 502\n"
             "INC, DEC 1\n";
+
+            [self clear];
+
             break;
 
 
@@ -523,6 +536,10 @@
             break;
             
         case 999:
+            
+            self.txt_source.text = @"";
+            [self clear];
+
             break;
 
             
