@@ -86,9 +86,9 @@
 				D2BAB0B117EC8EE600807D0D /* EYMARIESimAppDelegate.m */,
 				D2BAB0B617EC8EE600807D0D /* EYMARIESimViewController.h */,
 				D2BAB0B717EC8EE600807D0D /* EYMARIESimViewController.m */,
+				D2BAB0D617EC8FF400807D0D /* EYMARIESimViewController.xib */,
 				D26C021619261209009B9078 /* NSNull+IntegerValue.h */,
 				D26C021719261209009B9078 /* NSNull+IntegerValue.m */,
-				D2BAB0D617EC8FF400807D0D /* EYMARIESimViewController.xib */,
 				D2BAB0B917EC8EE600807D0D /* Images.xcassets */,
 				D2BAB0A817EC8EE600807D0D /* Supporting Files */,
 			);

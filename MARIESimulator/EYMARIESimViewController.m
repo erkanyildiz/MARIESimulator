@@ -276,11 +276,13 @@
     }
     else if([opcodeStr isEqualToString:kINPUT])
     {
+        INREG = dec(self.txt_INREG.text);
         AC = INREG;
     }
     else if([opcodeStr isEqualToString:kOUTPUT])
     {
         OUTREG = AC;
+        self.lbl_OUTREG.text = hex4digit(OUTREG);
     }
     else if([opcodeStr isEqualToString:kCLEAR])
     {
@@ -343,6 +345,9 @@
 
 - (IBAction)onClick_example0:(id)sender
 {
+    self.txt_source.text = @"";
+    [self clear];
+
     switch ([sender tag])
     {
         case 100:
@@ -483,8 +488,6 @@
             break;
             
         case 999:
-            self.txt_source.text =
-            @"";
             break;
 
             
