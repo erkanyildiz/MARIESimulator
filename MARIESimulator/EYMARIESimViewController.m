@@ -49,6 +49,19 @@
                     nil];
     
     [self clear];
+    
+    
+    
+    vw_PCI = [[UIView alloc] initWithFrame:(CGRect){296,32,40,INDICATOR_HEIGHT}];
+    vw_PCI.alpha = 0.5;
+    vw_PCI.backgroundColor = UIColor.redColor;
+    [self.view addSubview:vw_PCI];
+
+    vw_MARI = [[UIView alloc] initWithFrame:(CGRect){296,32,40,INDICATOR_HEIGHT}];
+    vw_MARI.alpha = 0.5;
+    vw_MARI.backgroundColor = UIColor.yellowColor;
+    [self.view addSubview:vw_MARI];
+    vw_MARI.hidden = YES;
 }
 
 
@@ -64,8 +77,12 @@
     MBR = 0;
     INREG = 0;
     OUTREG = 0;
-    
     [self updateRegisters];
+    
+    
+    IndicatorOffset = PC;
+    [self updateIndicators];
+
     
     self.RAM = nil;
     self.RAM = [NSMutableArray arrayWithCapacity:MAXWORD];
@@ -114,6 +131,13 @@
     self.txt_INREG.text = hex4digit(INREG);
 }
 
+
+-(void)updateIndicators
+{
+    vw_PCI.center = (CGPoint){vw_PCI.center.x,32+INDICATOR_HEIGHT/2.0+(PC-IndicatorOffset)*INDICATOR_HEIGHT};
+
+    vw_MARI.center = (CGPoint){vw_MARI.center.x,32+INDICATOR_HEIGHT/2.0+(MAR-IndicatorOffset)*INDICATOR_HEIGHT};
+}
 
 -(void)parse:(NSString*)source
 {
@@ -195,6 +219,8 @@
     
     if([parts[0] isEqualToString:kORG])
         PC++;
+    
+    IndicatorOffset = PC;
     
     [self updateRegisters];
 }
@@ -331,6 +357,7 @@
     
     [self updateRegisters];
     [self updateRAM];
+    [self updateIndicators];
     
     if(shouldContinueExecuting && ![opcodeStr isEqualToString:kHALT])
        [self performSelector:@selector(runLoop) withObject:nil afterDelay:executionDelay];

@@ -37,6 +37,8 @@
 
 #define MAXWORD 65536
 
+#define INDICATOR_HEIGHT 18.11111
+
 @interface EYMARIESimViewController : UIViewController
 {
     NSInteger AC;
@@ -51,6 +53,10 @@
     float executionDelay;
     
     bool isHalted;
+    
+    NSInteger IndicatorOffset;
+    UIView *vw_PCI;
+    UIView *vw_MARI;
 }
 
 
