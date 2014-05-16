@@ -113,7 +113,17 @@
 47
 48
 49
-50</string>
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</string>
                     <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -145,6 +155,11 @@
                     <rect key="frame" x="439" y="24" width="180" height="194"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <view hidden="YES" contentMode="scaleToFill" id="dFH-5Q-Fuw">
+                            <rect key="frame" x="88" y="0.0" width="92" height="194"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.93877551020408156" green="0.83209841714135468" blue="0.59857140024179456" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FFFF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I0A-9O-ia8">
                             <rect key="frame" x="98" y="13" width="60" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

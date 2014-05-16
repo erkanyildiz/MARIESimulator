@@ -340,6 +340,14 @@
 
 - (IBAction)onClick_load:(id)sender
 {
+    if([self.txt_source.text isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"SOURCE field is empty!\n Use EXAMPLE codes or write your own code." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+
+    
     [self parse:self.txt_source.text];
 }
 
@@ -500,6 +508,13 @@
 
 - (IBAction)onClick_run:(id)sender
 {
+    if([self.txt_memory.text isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need to LOAD first!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
     shouldContinueExecuting = YES;
     executionDelay=0.2;
     [self runLoop];
@@ -508,6 +523,13 @@
 
 - (IBAction)onClick_step:(id)sender
 {
+    if([self.txt_memory.text isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need to LOAD first!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(runLoop) object:nil];
     shouldContinueExecuting = NO;
     executionDelay=0.0;
