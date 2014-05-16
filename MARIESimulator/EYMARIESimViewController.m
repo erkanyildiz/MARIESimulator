@@ -153,7 +153,7 @@
 
             if ([parts[0] isEqualToString:kDEC] || [parts[0] isEqualToString:kHEX])
             {
-                NSLog(@"Label with DEC or HEX detected on line %i", idx);
+                NSLog(@"Label with DEC or HEX detected on line %lu", (unsigned long)idx);
                 
                 NSInteger immediateValue = ([parts[0] isEqualToString:kHEX])?dec(parts[1]):([parts[1] integerValue] + MAXWORD) % MAXWORD;
                 self.RAM[index]  = @(immediateValue);
@@ -167,7 +167,7 @@
     
     [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
      {
-         NSLog(@"Line %i: %@", idx, obj);
+         NSLog(@"Line %lu: %@", (unsigned long)idx, obj);
          
          NSString* forSpaceSeparate = obj;
          NSArray* commaSeparated = [obj componentsSeparatedByString:@","];
@@ -272,7 +272,7 @@
         MAR = operand;
         MBR = [self.RAM[MAR] integerValue];
         AC = ((AC - MBR) + MAXWORD) % MAXWORD;
-        NSLog(@"SUB AC %i",AC);
+        NSLog(@"SUB AC %li",(long)AC);
     }
     else if([opcodeStr isEqualToString:kINPUT])
     {
@@ -310,17 +310,17 @@
     {
         if(operand == 0 && AC >= MAXWORD/2)
         {
-            NSLog(@"SKIPCOND negative %i",operand);
+            NSLog(@"SKIPCOND negative %li",(long)operand);
             PC++;
         }
         else if (operand == 4*256 && AC == 0)
         {
-            NSLog(@"SKIPCOND zero %i",operand);
+            NSLog(@"SKIPCOND zero %li",(long)operand);
             PC++;
         }
         else if (operand == 8*256 && AC < MAXWORD/2 && AC != 0)
         {
-            NSLog(@"SKIPCOND positive %i",operand);
+            NSLog(@"SKIPCOND positive %li",(long)operand);
             PC++;
         }
     }
@@ -463,7 +463,7 @@
 
 
         case 200:
-            for (int i=dec(@"210"); i<=dec(@"22F"); i++)
+            for (NSInteger i=dec(@"210"); i<=dec(@"22F"); i++)
                 self.RAM[i]=@(arc4random()%100);
             
             [self updateRAM];
@@ -471,7 +471,7 @@
             break;
 
         case 300:
-            for (int i=dec(@"350"); i<=dec(@"36F"); i++)
+            for (NSInteger i=dec(@"350"); i<=dec(@"36F"); i++)
                 self.RAM[i]=@(arc4random()%MAXWORD);
             
             self.RAM[dec(@"500")] = @0;
