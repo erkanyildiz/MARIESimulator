@@ -585,13 +585,13 @@
 
 NSString* hex(NSInteger d)
 {
-    return [NSString stringWithFormat:@"%03x",d].uppercaseString;
+    return [NSString stringWithFormat:@"%03lx",(long)d].uppercaseString;
 }
 
 
 NSString* hex4digit(NSInteger d)
 {
-    return [NSString stringWithFormat:@"%04x",d].uppercaseString;
+    return [NSString stringWithFormat:@"%04lx",(long)d].uppercaseString;
 }
 
 
@@ -611,22 +611,21 @@ NSInteger dec(NSString* h)
     return ((sign*dec) + MAXWORD) % MAXWORD;
 }
 
-#pragma mark - Tests
+#pragma mark - Tests & ToDos
 
 //EXECUTE
 //DONE: check JNS
 //DONE: check SKIPCOND
 //DONE: handle ORG 0 -1 +1
 //DONE: comma parse for JUMP and DEC/HEX
-//TODO: prevent run before loading and setting random memory
-//TODO: NSNull intvaluse 0 category
+//DONE: prevent run before loading and setting random memory
+//DONE: NSNull intValue 0 category
 
 //UI
-//TODO: Add line numbers (scrollable)
+//TODO: scrollable line numbers
 //TODO: tableview instead of textview for RAM
-//TODO: PC indicator
-//TODO: run clear for re-run
-//TODO: run disable before loading
+//DONE: PC indicator
+//TODO: prevent repetetive run
 //TODO: slider for speed
 
 //PARSE
@@ -634,7 +633,7 @@ NSInteger dec(NSString* h)
 //TODO: same labels used again
 //TODO: whitespace parsing
 //TODO: more than one ORG
-//TODO: direct ram edit
+//TODO: direct RAM edit
 //TODO: labels with tab indent
 
 @end
