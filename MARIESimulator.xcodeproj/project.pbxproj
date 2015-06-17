@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D25A2AEB1B31DB99001B5B5A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D25A2AEA1B31DB99001B5B5A /* README.md */; };
 		D25A2AED1B31DDB0001B5B5A /* mariesimulator_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = D25A2AEC1B31DDB0001B5B5A /* mariesimulator_screenshot.png */; };
 		D2BAB0A217EC8EE600807D0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BAB0A117EC8EE600807D0D /* Foundation.framework */; };
 		D2BAB0A417EC8EE600807D0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BAB0A317EC8EE600807D0D /* CoreGraphics.framework */; };
@@ -21,8 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D25A2AEA1B31DB99001B5B5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D25A2AEC1B31DDB0001B5B5A /* mariesimulator_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mariesimulator_screenshot.png; sourceTree = "<group>"; };
+		D25A2AEE1B31E041001B5B5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D2BAB09E17EC8EE600807D0D /* MARIESimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MARIESimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BAB0A117EC8EE600807D0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2BAB0A317EC8EE600807D0D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				D2BAB0A717EC8EE600807D0D /* MARIESimulator */,
+				D25A2AEE1B31E041001B5B5A /* README.md */,
 				D2BAB0A017EC8EE600807D0D /* Frameworks */,
 				D2BAB09F17EC8EE600807D0D /* Products */,
 			);
@@ -89,7 +89,6 @@
 				D2BAB0B717EC8EE600807D0D /* EYMARIESimViewController.m */,
 				D2BAB0D617EC8FF400807D0D /* EYMARIESimViewController.xib */,
 				D25A2AEC1B31DDB0001B5B5A /* mariesimulator_screenshot.png */,
-				D25A2AEA1B31DB99001B5B5A /* README.md */,
 				D2BAB0B917EC8EE600807D0D /* Images.xcassets */,
 				D2BAB0A817EC8EE600807D0D /* Supporting Files */,
 			);
@@ -176,7 +175,6 @@
 			files = (
 				D2BAB0B217EC8EE600807D0D /* EYMARIESimAppDelegate.m in Sources */,
 				D2BAB0AE17EC8EE600807D0D /* main.m in Sources */,
-				D25A2AEB1B31DB99001B5B5A /* README.md in Sources */,
 				D2BAB0B817EC8EE600807D0D /* EYMARIESimViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
