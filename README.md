@@ -5,6 +5,9 @@ MARIE (Machine Architecture that is Really Intuitive and Easy) bilgisayar organi
 
 #Simülatör
 MARIE simülatörü Objective-C ile iPad uygulaması olarak yazılmış olup, arayüzü aşağıdaki görseldeki gibidir.
+ 
+![](https://raw.githubusercontent.com/erkanyildiz/MARIESimulator/master/MARIESimulator/mariesimulator_screenshot.png)
+
 
 #Arayüz Açıklamaları     
 Simülatörün arayüzünde MARIE kodlarının girildiği SOURCE, bellek adres ve içeriğinin görüntülendiği RAM, koddaki etiketlerin görüntülendiği LABELS ve register içeriklerinin görüntülendiği REGISTERS alanları bulunmaktadır. Bu alanlara ek olarak LOAD, RUN, STEP işlemlerinin yapıldığı kontrol butonları ve örnek kodların yüklendiği EXAMPLE butonları bulunmaktadır.
