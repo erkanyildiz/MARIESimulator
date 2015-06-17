@@ -109,16 +109,16 @@
     self.txt_memory.text = @"";
     
     [self.RAM enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-     {
-         if(![obj isEqual:[NSNull null]])
-         {
-             NSString* address = hex(idx);
-             NSString* instructionHex = hex([self.RAM[idx] integerValue]);
-             NSString* prepadding = (instructionHex.length < 4)?@"0":@"";
-             
-             self.txt_memory.text = [self.txt_memory.text stringByAppendingFormat:@"%@  %@%@\n", address,prepadding,instructionHex ];
-         }
-     }];
+    {
+        if(![obj isEqual:[NSNull null]])
+        {
+            NSString* address = hex(idx);
+            NSString* instructionHex = hex([self.RAM[idx] integerValue]);
+            NSString* prepadding = (instructionHex.length < 4)?@"0":@"";
+            
+            self.txt_memory.text = [self.txt_memory.text stringByAppendingFormat:@"%@  %@%@\n", address,prepadding,instructionHex ];
+        }
+    }];
 }
 
 
@@ -164,18 +164,18 @@
 #pragma mark LABEL check
     
     [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-     {
-         NSArray* commaSeparated = [obj componentsSeparatedByString:@","];
+    {
+        NSArray* commaSeparated = [obj componentsSeparatedByString:@","];
          
-         if (commaSeparated.count == 2)
+        if (commaSeparated.count == 2)
         {
-             NSArray* parts = [[commaSeparated[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet] componentsSeparatedByString:@" "];
+            NSArray* parts = [[commaSeparated[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet] componentsSeparatedByString:@" "];
 
-             NSString *label = commaSeparated[0];
-             NSInteger index = offset + idx;
-             
-             self.labels[label] = @(index);
-             self.txt_labels.text = [self.txt_labels.text stringByAppendingFormat:@"%@  %@\n", hex(index), label];
+            NSString *label = commaSeparated[0];
+            NSInteger index = offset + idx;
+
+            self.labels[label] = @(index);
+            self.txt_labels.text = [self.txt_labels.text stringByAppendingFormat:@"%@  %@\n", hex(index), label];
 
             if ([parts[0] isEqualToString:kDEC] || [parts[0] isEqualToString:kHEX])
             {
@@ -185,35 +185,35 @@
                 self.RAM[index]  = @(immediateValue);
             }
         }
-     }];
+    }];
     
     
     
 #pragma mark INSTRUCTION check
     
     [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-     {
-         NSLog(@"Line %lu: %@", (unsigned long)idx, obj);
-         
-         NSString* forSpaceSeparate = obj;
-         NSArray* commaSeparated = [obj componentsSeparatedByString:@","];
-         if(commaSeparated.count == 2)
-             forSpaceSeparate = [commaSeparated[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
-         
-         NSArray* parts = [forSpaceSeparate componentsSeparatedByString:@" "];
+    {
+        NSLog(@"Line %lu: %@", (unsigned long)idx, obj);
 
-         NSInteger opcode = [self.opcodes indexOfObject:parts[0]];
+        NSString* forSpaceSeparate = obj;
+        NSArray* commaSeparated = [obj componentsSeparatedByString:@","];
+        if(commaSeparated.count == 2)
+            forSpaceSeparate = [commaSeparated[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
          
-         if (opcode != NSNotFound)
-         {
-             NSInteger index = offset+idx;
-             NSInteger operand = (parts.count == 1)?0:[self.labels[parts[1]] integerValue];
-             if([parts[0] isEqualToString:kSKIPCOND]) operand = dec(parts[1]);
-             NSInteger instruction = opcode*4096+operand;
-             
-             self.RAM[index] = @(instruction);
-         }
-     }];
+        NSArray* parts = [forSpaceSeparate componentsSeparatedByString:@" "];
+
+        NSInteger opcode = [self.opcodes indexOfObject:parts[0]];
+
+        if (opcode != NSNotFound)
+        {
+            NSInteger index = offset+idx;
+            NSInteger operand = (parts.count == 1)?0:[self.labels[parts[1]] integerValue];
+            if([parts[0] isEqualToString:kSKIPCOND]) operand = dec(parts[1]);
+            NSInteger instruction = opcode*4096+operand;
+         
+            self.RAM[index] = @(instruction);
+        }
+    }];
     
     [self updateRAM];
 
