@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D26C021819261209009B9078 /* NSNull+IntegerValue.m in Sources */ = {isa = PBXBuildFile; fileRef = D26C021719261209009B9078 /* NSNull+IntegerValue.m */; };
 		D2BAB0A217EC8EE600807D0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BAB0A117EC8EE600807D0D /* Foundation.framework */; };
 		D2BAB0A417EC8EE600807D0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BAB0A317EC8EE600807D0D /* CoreGraphics.framework */; };
 		D2BAB0A617EC8EE600807D0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BAB0A517EC8EE600807D0D /* UIKit.framework */; };
@@ -20,8 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D26C021619261209009B9078 /* NSNull+IntegerValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+IntegerValue.h"; sourceTree = "<group>"; };
-		D26C021719261209009B9078 /* NSNull+IntegerValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+IntegerValue.m"; sourceTree = "<group>"; };
 		D2BAB09E17EC8EE600807D0D /* MARIESimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MARIESimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BAB0A117EC8EE600807D0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2BAB0A317EC8EE600807D0D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,8 +84,6 @@
 				D2BAB0B617EC8EE600807D0D /* EYMARIESimViewController.h */,
 				D2BAB0B717EC8EE600807D0D /* EYMARIESimViewController.m */,
 				D2BAB0D617EC8FF400807D0D /* EYMARIESimViewController.xib */,
-				D26C021619261209009B9078 /* NSNull+IntegerValue.h */,
-				D26C021719261209009B9078 /* NSNull+IntegerValue.m */,
 				D2BAB0B917EC8EE600807D0D /* Images.xcassets */,
 				D2BAB0A817EC8EE600807D0D /* Supporting Files */,
 			);
@@ -174,7 +169,6 @@
 			files = (
 				D2BAB0B217EC8EE600807D0D /* EYMARIESimAppDelegate.m in Sources */,
 				D2BAB0AE17EC8EE600807D0D /* main.m in Sources */,
-				D26C021819261209009B9078 /* NSNull+IntegerValue.m in Sources */,
 				D2BAB0B817EC8EE600807D0D /* EYMARIESimViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

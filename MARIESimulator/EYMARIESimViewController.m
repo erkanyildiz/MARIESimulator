@@ -611,6 +611,8 @@ NSInteger dec(NSString* h)
     return ((sign*dec) + MAXWORD) % MAXWORD;
 }
 
+
+
 #pragma mark - Tests & ToDos
 
 //EXECUTE
@@ -636,4 +638,19 @@ NSInteger dec(NSString* h)
 //TODO: direct RAM edit
 //TODO: labels with tab indent
 
+@end
+
+
+
+#pragma mark - NSNull+IntegerValue
+
+@interface NSNull (IntegerValue)
+-(NSInteger)integerValue;
+@end
+
+@implementation NSNull (IntegerValue)
+-(NSInteger)integerValue
+{
+    return 0;
+}
 @end
