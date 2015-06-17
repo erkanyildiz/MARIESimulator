@@ -1,7 +1,9 @@
+(English README is not available yet, but it will be added)
+
 #MARIE
 MARIE (Machine Architecture that is Really Intuitive and Easy) bilgisayar organizasyonu ve tasarımı konusunda özellikle öğrenciler için düşünülmüş basit ve kolay anlaşılır bir sanal bilgisayar mimarisidir. 
 
-#MARIE Simülatörü 
+#Simülatör
 MARIE simülatörü Objective-C ile iPad uygulaması olarak yazılmış olup, arayüzü aşağıdaki görseldeki gibidir.
 
 #Arayüz Açıklamaları     
