@@ -1,27 +1,29 @@
-(English README is not available yet, but it will be added)
-
 #MARIE
-MARIE (Machine Architecture that is Really Intuitive and Easy) bilgisayar organizasyonu ve tasarımı konusunda özellikle öğrenciler için düşünülmüş basit ve kolay anlaşılır bir sanal bilgisayar mimarisidir. 
+MARIE (Machine Architecture that is Really Intuitive and Easy) is an easily comprehensible virtual computer architecture, specially created for computer organization/architecture/design class students.
 
-#Simülatör
-MARIE simülatörü Objective-C ile iPad uygulaması olarak yazılmış olup, arayüzü aşağıdaki görseldeki gibidir.
+#Simulator
+MARIESimulator is an iPad application written in Objective-C, and its interface is like shown below:
  
 ![](https://raw.githubusercontent.com/erkanyildiz/MARIESimulator/master/MARIESimulator/mariesimulator_screenshot.png)
 
 
-#Arayüz Açıklamaları     
-Simülatörün arayüzünde MARIE kodlarının girildiği SOURCE, bellek adres ve içeriğinin görüntülendiği RAM, koddaki etiketlerin görüntülendiği LABELS ve register içeriklerinin görüntülendiği REGISTERS alanları bulunmaktadır. Bu alanlara ek olarak LOAD, RUN, STEP işlemlerinin yapıldığı kontrol butonları ve örnek kodların yüklendiği EXAMPLE butonları bulunmaktadır.
+#Interface     
+SOURCE textfield is for entering MARIE source code.
 
-SOURCE alanına kodlar elle girilebildiği gibi EXAMPLE butonlarından biri ile hazır programlar da yüklenebilir. 
+RAM section is for displaying addresses and contents of memory.
 
-LOAD butonu SOURCE alanındaki MARIE kodunu işleyerek LABEL’ları tespit edip RAM alanını komutlara ve adreslere uygun şekilde doldurur. 
+REGISTER section is for displaying contents of registers. INREG textfield is used for INPUT instruction.
 
-RUN butonu LOAD butonu ile çalıştırılmaya hazır hale gelen komutları otomatik olarak çalıştırmaya yarar. HALT komutu görülene kadar simülatör komutları işlemeye ve değişiklikleri RAM ve REGISTERS alanına anında yansıtmaya devam eder. 
+LABEL field is for displaying labels and their address equivalents in the source code.
 
-STEP butonu komutların tek tek işlenmesini sağlar. 
+LOAD button processes the MARIE source code in the SOURCE field, detects labels and display them in LABEL section, and fills the RAM section according to the instructions and labels.
 
-[210-22F] butonu 2. Örnek kod için gerekli olan bellekte 210-22F arasını rastgele sayılarla doldurmaktadır. 
+RUN button starts and countinues executing instructions automatically and displays the new values in REGISTER and RAM sections until HALT instruction is executed.
 
-[350-36F] butonu 3. Örnek kod için gerekli olan bellekte 350-36F arasını rastgele sayılarla doldurmaktadır.      
+STEP button executes instructions line by line.
 
-INREG textfield’ı INPUT komutu için kullanılmaktadır. 
+EXAMPLE buttons are for filling SOURCE textfield with pre-defined example MARIE codes.
+
+[210-22F] button fills addresses between 210 and 22F on memory with random values which are required for Example 2.
+
+[350-36F] button fills addresses between 350 and 36F on memory with random values which are required for Example 3.
